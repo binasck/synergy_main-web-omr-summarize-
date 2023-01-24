@@ -1,0 +1,27 @@
+
+
+{% extends 'staff/b.html' %}
+{% block body %}
+<form action="" method="post">
+    <center></center><br/><br/>
+<table  class="table table-bordered table-hover">
+  <tr>
+    <th>SI No.</th>
+    <th>Date</th>
+    <th>Name</th>
+    <th>Materials</th>
+
+    <th></th>
+    </tr>
+  <tr>
+      {% for i in data %}
+    <th>{{ loop.index }}</th>
+          <td>{{i['date']}}</td>
+          <td>&nbsp;{{  i['name']}}</td>
+          <td><a href="{{i['material']}}" download class="btn btn-success" >download  </a></td>
+
+    <td><a href="/deletematerial/{{ i['material_id'] }}#about" onclick="return confirm('Are you sure ?')" class="btn btn-danger">Delete</a></td>
+    </tr>{% endfor %}
+</table>
+</form>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'staff/b.html' %}
+{% block body %}
+<body>
+<form action="" method="get">
+<table class="table table-bordered table-hover">
+  <tr>
+    <th>SI No.</th>
+    <th>Date</></td>
+    <th>Notification</></td>
+    </tr>
+  <tr>
+      {% for i in data %}
+    <th>{{ loop.index }}</th>
+    <td>{{ i['date'] }}</td>
+    <td>{{ i['notification'] }}</td>
+    </tr>{% endfor %}
+</table>
+</form>
+{% endblock %}

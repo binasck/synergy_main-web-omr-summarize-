@@ -1,0 +1,22 @@
+{% extends 'staff/b.html' %}
+{% block body %}
+<form action="/addmaterialpost" method="post" enctype="multipart/form-data">
+
+<table class="table table-bordered table-hover">
+  <tr>
+    <th>Name</th>
+    <td>
+      <input type="text" name="materialname" id="textfield5" required/></td>
+    </tr>
+  <tr>
+    <th>Material</th>
+    <td>
+      <input type="file" name="material" id="fileField" required /></td>
+    </tr>
+  <tr>
+      <td></td>
+    <th colspan="2" scope="row"><input type="submit" value="Add" class="btn btn-success">&nbsp;</th>
+  </tr>
+</table>
+</form>
+{% endblock %}

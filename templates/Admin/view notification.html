@@ -1,0 +1,21 @@
+{% extends 'admin/a.html' %}
+{% block body %}
+<form action="" method="get">
+<table class="table table-bordered table-hover" >
+  <tr>
+    <th>SI No.</th>
+    <th>Date</th>
+    <th>Notification</th>
+    <td>&nbsp;</td>
+    </tr>
+  <tr>
+      {% for i in data %}
+    <th>{{ loop.index }}</th>
+    <td>{{ i['date'] }}</td>
+    <td>{{ i['notification'] }}</td>
+    <td><a href="/deletenotification/{{ i['notification_id'] }}#about" onclick="return confirm('Are you sure ?')"  class="btn btn-danger">Delete</a></td>
+    </tr>
+    {% endfor %}
+</table>
+</form>
+{% endblock %}

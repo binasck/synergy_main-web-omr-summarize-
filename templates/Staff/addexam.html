@@ -1,0 +1,22 @@
+{% extends 'staff/b.html' %}
+{% block body %}
+<form action="/addexampost" method="post" enctype="multipart/form-data">
+
+<table class="table table-bordered table-hover">
+  <tr>
+    <th>Exam</th>
+    <td>
+      <input type="text" name="exam" id="exam" required /></td>
+    </tr>
+  <tr>
+    <th>Date</th>
+    <td>
+      <input type="date" name="date" id="date" required/></td>
+    </tr>
+  <tr>
+      <td></td>
+    <th><input type="submit" value="Add" class="btn btn-success">&nbsp;</th>
+  </tr>
+</table>
+</form>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'staff/b.html' %}
+{% block body %}
+<form method="post" action="/change_pswrd_post">
+    <table class="table table-bordered table-hover">
+        <tr>
+            <th>Current Password</th>
+            <td><input type="text"  name="p1" REQUIRED></td>
+        </tr>
+        <tr>
+            <th>New Password</th>
+            <td><input type="text" name="p2" REQUIRED></td>
+        </tr>
+        <tr>
+            <th>Confirm Password</th>
+            <td><input type="text" name="p3" REQUIRED></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center"><input type="submit" name="s1" value="SUBMIT" class="btn btn-primary"></td>
+        </tr>
+    </table>
+</form>
+{% endblock %}

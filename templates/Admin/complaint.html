@@ -1,0 +1,38 @@
+{% extends 'admin/a.html' %}
+{% block body %}
+<form action="/admin_search_complaint#about" method="post">
+<table class="table table-bordered table-hover">
+  <tr>
+      <th>From</th>
+      <th><input type="date" name="dt1" required class="form-control"></th>
+      <th>To</th>
+      <th><input type="date" name="dt2" class="form-control"></th>
+
+<td><input type="submit" name="button" value="Search" class="btn btn-success"></td>
+</tr>
+</table>
+<table class="table table-bordered table-hover" >
+  <tr>
+    <th>SI No.</th>
+    <th>Date</th>
+    <th>Student</th>
+    <th>Complaint</th>
+    <th>Reply</th>
+  </tr>
+    {% for i in data %}
+  <tr>
+    <th>{{ loop.index}}&nbsp;</th>
+    <td>&nbsp;{{ i['dt'] }}</td>
+    <td>&nbsp;{{ i['name'] }}</td>
+    <td>&nbsp;{{ i['complaint'] }}</td>
+    <td>
+        {% if i['status']=='pending' %}
+        <a href="/admin_complaint_reply/{{ i['complaint_id'] }}#about" class="btn btn-primary" >reply</a></div>
+        {% else %}
+        {{ i['reply'] }}
+        {% endif %}
+    </td>
+  </tr>{% endfor %}
+</table>
+</form>
+{% endblock %}

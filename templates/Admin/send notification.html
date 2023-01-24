@@ -1,0 +1,18 @@
+{% extends 'admin/a.html' %}
+{% block body %}
+<form action="/adminnotification#about" method="post">
+<table class="table table-bordered table-hover" >
+  <tr>
+    <th>Notification:</th>
+      <td>
+          <textarea name="notification" id="notification" cols="75" rows="5" required></textarea></td>
+    </tr>
+
+
+  <tr>
+      <td></td>
+    <th><input type="submit" value="Send" class="btn btn-success" >&nbsp;</th>
+    </tr>
+</table>
+</form>
+{% endblock %}

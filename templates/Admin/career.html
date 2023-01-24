@@ -1,0 +1,32 @@
+{% extends 'admin/a.html' %}
+{% block body %}
+<form action="/admincareer" method="post">
+<table class="table table-bordered table-hover">
+  <tr>
+    <th>Career</th>
+    <td>
+      <input type="text" name="admincareer" id="textfield2" required class="form-control" /></td>
+    </tr>
+  <tr>
+    <th>Description</th>
+    <td><label for="textfield"></label>
+      <input type="text" name="admindesc" id="textfield" required class="form-control" /></td>
+    </tr>
+{#  <tr>#}
+{#    <th scope="row">Date</th>#}
+{#    <td><label for="textfield3"></label>#}
+{#      <input type="date" name="careerdate" id="textfield3" /></td>#}
+{#    </tr>#}
+{#  <tr>#}
+{#      <tr>#}
+{#    <th scope="row">Time</th>#}
+{#    <td><label for="textfield3"></label>#}
+{#      <input type="time" name="careertime" id="textfield3" /></td>#}
+{#    </tr>#}
+  <tr>
+      <td></td>
+    <td><input type="submit" value="Add" class="btn btn-success">&nbsp;</td>
+    </tr>
+</table>
+</form>
+{% endblock %}

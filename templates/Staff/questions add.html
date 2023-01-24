@@ -1,0 +1,40 @@
+{% extends 'staff/b.html' %}
+{% block body %}
+<form action="/qstnaddpost#about" method="post">
+<table class="table table-bordered table-hover">
+  <tr>
+    <th>Question</th>
+    <td><label for="textfield2"></label>
+     <textarea name="question" cols="75" rows="5"></textarea></td>
+    </tr>
+  <tr>
+    <th>Option1</th>
+    <td><input name="option1" type="text" /></td>
+    </tr>
+  <tr>
+    <th>Option2</th>
+    <td>
+      <input type="text" name="option2" id="textfield" /></td>
+  </tr>
+  <tr>
+    <th>Options3</th>
+    <td>
+      <input type="text" name="option3" id="textfield2" /></td>
+    </tr> 
+  <tr>
+    <th>Option4</th>
+    <td>
+      <input type="text" name="option4" id="textfield3" /></td>
+  </tr>
+  <tr>
+    <th>Correct Answer</th>
+    <td>
+      <input type="text" name="correct" id="textfield4" /></td>
+    </tr>
+  <tr>
+      <td></td>
+    <th><input type="submit" value="Add" class="btn btn-success"/></th>
+    </tr>
+</table>
+</form>
+{%  endblock %}

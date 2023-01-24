@@ -1,0 +1,32 @@
+{% extends 'admin/a.html' %}
+{% block body %}
+<form action="/addwinnerpost#about" method="post" enctype="multipart/form-data">
+<table class="table table-bordered table-hover">
+  <tr>
+    <th>Name</th>
+    <td><label for="textfield2"></label>
+      <label for="textfield5"></label>
+      <input type="text" name="winnername" pattern="[A-Z/ /a-z]{3,}" maxlength="25" id="textfield5" required  class="form-control" /></td>
+    </tr>
+  <tr>
+    <th>Photo</th>
+    <td><label for="fileField"></label>
+      <input type="file" name="winnerphoto" id="fileField" required class="form-control" /></td>
+    </tr>
+  <tr>
+    <th>Details</th>
+    <td><label for="textfield4"></label>
+      <input type="text" name="winnerdet" id="textfield4" required  class="form-control" /></td>
+  </tr>
+  <tr>
+    <th>Date of passout</th>
+    <td><label for="textfield3"></label>
+      <input type="date" name="winnerpass" id="textfield3" required  class="form-control" /></td>
+  </tr> 
+  <tr>
+      <td></td>
+    <th><input type="submit" value="Add" class="btn btn-success" >&nbsp;</th>
+  </tr>
+</table>
+</form>
+{% endblock %}

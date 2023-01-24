@@ -1,0 +1,75 @@
+{% extends 'admin/a.html' %}
+{% block body %}
+<form action="/editstaff_post" method="post" enctype="multipart/form-data"><table class="table table-bordered table-hover">
+    <input type="hidden" value="{{ data['staff_id'] }}" name="id">
+
+  <tr>
+    <th>Name</th>
+    <td scope="col"><label for="textfield"></label>
+      <input value="{{ data['name'] }}" type="text" name="staffname" pattern="[A-Z/ /a-z]{3,}" id="textfield" required class="form-control" />
+  </tr>
+  <tr>
+    <th>Gender</th>
+    <td>
+          <label>
+              <input type="radio" name="RadioGroup1" value="Male" id="RadioGroup1_0" required />
+              Female
+          </label><br>
+
+          <label>
+              <input type="radio" name="RadioGroup1" value="Female" id="RadioGroup1_1" required/>
+              Male</label></td>
+  </tr>
+  <tr>
+    <th>Place</th>
+    <td><label for="textfield3"></label>
+        <input type="text" value="{{ data['place'] }}" name="staffplace" id="textfield3" required class="form-control" />
+    </td>
+  </tr>
+  <tr>
+    <th>Post</th>
+    <td><label for="textfield2"></label>
+      <div align="center">
+        <input type="text" value="{{ data['post'] }}" name="staffpost" id="textfield2" required class="form-control" />
+      </div></td>
+  </tr>
+  <tr>
+    <th>District</th>
+    <td><label for="textfield4"></label>
+
+        <input type="text" value="{{ data['district'] }}" name="staffdist" id="textfield4" required class="form-control" />
+      </td>
+  </tr>
+  <tr>
+    <th>E-mail</th>
+    <td><label for="textfield5"></label>
+        <input type="text" value="{{ data['email'] }}" name="staffmail" readonly id="mail"required class="form-control" />
+      </td>
+  </tr>
+  <tr>
+    <th>Phone</th>
+    <td><label for="textfield6"></label>
+        <input type="text" value="{{ data['phone'] }}" name="staffphone" pattern="[6-9][0-9]{9}" id="textfield6"required class="form-control" />
+      </td>
+  </tr>
+  <tr>
+      <th>Photo</th>
+    <td><label for="fileField"></label>
+        <img height="100" width="100" src="{{ data['photo'] }}" alt="no image"/>
+      <input type="file" name="staffphoto" id="fileField" /></td>
+  </tr>
+  <tr>
+    <th>Qualification</th>
+    <td><label for="textfield7"></label>
+      <div align="center">
+        <input type="text" value="{{ data['qualification'] }}" name="staffqua" pattern="[A-Z/ /a-z]{3,}" id="textfield7" required class="form-control" />
+      </div></td>
+  </tr>
+  <tr>
+  <th></th>
+    <td><input type="submit" value="Add" class="btn btn-success" >&nbsp;</td>
+    </tr>
+</table>
+</form>
+
+{% endblock %}

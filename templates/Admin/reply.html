@@ -1,0 +1,17 @@
+{% extends 'admin/a.html' %}
+{% block body %}
+<form action="/admincomplaintreply#about" method="post">
+    <input type="hidden" value="{{ data['complaint_id'] }}" name="id">
+<table class="table table-bordered table-hover" >
+  <tr>
+    <th>Reply:</th>
+      <td>
+      <textarea name="reply" id="reply" cols="75" rows="5"></textarea></td>
+    </tr>
+  <tr>
+      <td></td>
+    <th scope="row"><input type="submit" value="send" class="btn btn-success"></th>
+    </tr>
+</table>
+</form>
+{% endblock %}

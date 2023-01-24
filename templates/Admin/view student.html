@@ -1,0 +1,32 @@
+{% extends 'admin/a.html' %}
+{% block body %}
+<form action="/admin_search_student#about" method="post">
+<table class="table table-bordered table-hover">
+<tr>
+<td><input name="search" type="text" class="form-control" required/></td>
+
+<td><input type="submit" name="button" value="Search" class="btn btn-success"></td>
+</tr></table>
+    <table class="table table-bordered table-hover">
+  <tr><th>SI No.</th>
+    <th>Name</th>
+    <th>Gender</th>
+    <th>place</th>
+    <th>Qualification</th>
+    <th>Email</th>
+    </tr>
+  <tr>
+
+      {% for i in  data %}
+    <th scope="row">{{ loop.index }}</th>
+    <td>&nbsp;{{ i['name'] }}</td>
+    <td>{{ i['gender'] }}&nbsp;</td>
+    <td>{{ i['place'] }}</td>
+    <td>{{ i['qualification'] }}</td>
+    <td>{{ i['email'] }}</td>
+     
+      </tr>
+    {% endfor %}
+</table>
+</form>
+{% endblock %}

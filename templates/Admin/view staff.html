@@ -1,0 +1,37 @@
+{% extends 'admin/a.html' %}
+{% block body %}
+<form action="/admin_search_staff#about" method="post">
+<table class="table table-bordered table-hover">
+<tr>
+<td><input name="search" type="text" class="form-control" /></td>
+
+<td><input type="submit" name="button" value="Search" class="btn btn-success"></td>
+</tr>
+<table class="table table-bordered table-hover">
+  <tr>
+    <th>SI No.</th>
+      <th>Name</th>
+      <th>Photo</th>
+      <th>Gender</th>
+    <th>Place</th>
+  <th>Qualification</th>
+      <th></th>
+      <th></th>
+  </tr>
+  <tr>
+      {% for i in data %}
+    <td>{{ loop.index }}&nbsp;</td>
+    <td>&nbsp;{{ i['name'] }}</td>
+        <td><img height="100" width="100" src="{{ i['photo'] }}" alt="NO IMAGE"></td>
+    <td>&nbsp;{{ i['gender'] }}</td>
+    <td>&nbsp;{{ i['place'] }}</td>
+    <td>&nbsp;{{ i['qualification'] }}&nbsp;</td>
+    <td><a href="/editstaff/{{ i['staff_id'] }}#about" class="btn btn-primary">Edit</a></td>
+    <td>
+
+      <a href="/deletestaff/{{ i['staff_id'] }}#about" onclick="return confirm('Are you sure ?')" class="btn btn-danger">Delete</a></td>
+  </tr>
+    {% endfor %}
+</table>
+</form>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'admin/a.html' %}
+{% block body %}
+<form action="/editwinnerpost#about" method="post" enctype="multipart/form-data"><table  class="table table-bordered table-hover" >
+        <input type="hidden" value="{{ data['winner_id'] }}" name="id">
+
+
+  <tr>
+    <th>Name</th>
+    <td><label for="textfield2"></label>
+      <label for="textfield5"></label>
+      <input type="text" value="{{ data['name'] }}" name="winnername" pattern="[A-Z/ /a-z]{3,}" id="textfield5" required class="form-control" /></td>
+    </tr>
+  <tr>
+    <th scope="row">Photo</th>
+    <td><label for="fileField"></label>
+         <img height="75" width="75" src="{{ data['photo'] }}" alt="no image"/>
+      <input  type="file" name="winnerphoto" id="fileField" required /></td>
+    </tr>
+  <tr>
+    <th scope="row">Details</th>
+    <td><label for="textfield4"></label>
+      <input type="text" value="{{ data['details'] }}" name="winnerdet"  id="textfield4" required class="form-control" /></td>
+  </tr>
+  <tr>
+    <th scope="row">Date of passout</th>
+    <td><label for="textfield3"></label>
+      <input type="date" value="{{ data['date_of_passout'] }}" name="winnerpass" id="textfield3" required class="form-control" /></td>
+ </tr>
+  <tr><td></td>
+    <th><input type="submit" value="Save" class="btn btn-success" >&nbsp;</th>
+  </tr>
+</table>
+</form>
+</body>
+</html>
+{% endblock %}

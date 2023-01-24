@@ -1,0 +1,89 @@
+{% extends 'admin/a.html' %}
+{% block body %}
+<form action="/staffpost" method="post" enctype="multipart/form-data"><table class="table table-bordered table-hover">
+  <tr>
+    <th>Name</th>
+    <td scope="col"><label for="textfield"></label>
+      <input type="text" name="staffname" placeholder="Full Name" pattern="[A-Z/ /a-z]{3,}" maxlength="25" id="textfield" required class="form-control" /></td>
+  </tr>
+  <tr>
+    <th>Gender</th>
+    <td>
+          <label>
+              <input type="radio" name="RadioGroup1" value="Male" id="RadioGroup1_0" required  />
+              Male
+          </label><br>
+
+          <label>
+              <input type="radio" name="RadioGroup1" value="Female" id="RadioGroup1_1" required />
+              Female</label></td>
+  </tr>
+      <tr>
+    <th>Place</th>
+    <td><label for="textfield3"></label>
+        <input type="text" name="staffplace" id="textfield3" class="form-control" required />
+      </td>
+  </tr>
+  <tr>
+    <th>Post</th>
+    <td><label for="textfield2"></label>
+        <input type="text" name="staffpost" id="textfield2" class="form-control" required />
+      </td>
+  </tr>
+  <tr>
+    <th>District</th>
+    <td><label for="textfield4"></label>
+        <input type="text" name="staffdist"  pattern="[A-Z/ /a-z]{3,}" maxlength="25" id="textfield4" class="form-control" required />
+      </td>
+  </tr>
+  <tr>
+    <th>E-mail</th>
+    <td><label for="textfield5"></label>
+        <input type="email" name="staffmail" id="mail" class="form-control" required />
+      </td>
+  </tr>
+  <tr>
+    <th>Phone</th>
+    <td><label for="textfield6"></label>
+        <input type="text" name="staffphone" pattern="[6-9][0-9]{9}" maxlength="10" id="textfield6" required  class="form-control" />
+      </td>
+  </tr>
+  <tr>
+    <th>Photo</th>
+    <td><label for="fileField"></label>
+      <input type="file" name="staffphoto" id="fileField" class="form-control" required /></td>
+  </tr>
+  <tr>
+    <th>Qualification</th>
+    <td><label for="textfield7"></label>
+        <input type="text" name="staffqua" id="textfield7" pattern="[A-Z/ /a-z]{3,}" class="form-control" required />
+      </td>
+  </tr>
+  <tr>
+      <td></td>
+    <td><input type="submit" value="Add" id="button" class="btn btn-success" ></td>
+    </tr>
+</table>
+</form>
+
+    <script src="/static/jquery.js"></script>
+   <script>
+   $(document).ready(function () {
+   $(document).on('keyup','#mail',function () {
+       var ii=$(this).val();
+
+       $.getJSON("/mailcheck",{
+           cc:ii
+       },function (data) {
+           if (data["status"] == "no") {
+               $("#button").hide();
+               alert("already exists")
+           } else {
+               $("#button").show();
+           }
+       });
+       });
+   });
+   </script>
+
+{% endblock %}

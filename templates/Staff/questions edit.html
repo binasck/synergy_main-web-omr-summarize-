@@ -1,0 +1,40 @@
+{% extends 'staff/b.html' %}
+{% block body %}
+<form action="/editqstnpost#about" method="post">
+<table class="table table-bordered table-hover">
+  <tr>
+    <th>Question</th>
+    <td>
+     <textarea name="question" cols="" rows="" required>{{ data['question'] }}</textarea></td>
+    </tr>
+  <tr>
+    <th>Option1</th>
+    <td><input name="option1" type="text" value="{{ data['option_1'] }}" required/></td>
+    </tr>
+  <tr>
+    <th>Option2</th>
+    <td>
+      <input type="text" name="option2" id="textfield" value="{{ data['option_2'] }}" required/></td>
+  </tr>
+  <tr>
+    <th>Option3</th>
+    <td>
+      <input type="text" name="option3" id="textfield2" value="{{ data['option_3'] }}"required/></td>
+    </tr> 
+  <tr>
+    <th>Option4</th>
+    <td>
+      <input type="text" name="option4" id="textfield3" value="{{ data['option_4'] }}" required/></td>
+  </tr>
+  <tr>
+    <th>Correct Answer</th>
+    <td>
+      <input type="text" name="correct" id="textfield4" value="{{ data['correct_answer'] }}"required/></td>
+    </tr>
+  <tr>
+      <th></th>
+    <th><input type="submit" value="Add" class="btn btn-success"/></th>
+    </tr>
+</table>
+</form>
+{% endblock %}
