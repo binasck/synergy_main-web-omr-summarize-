@@ -1,0 +1,58 @@
+#----------------------------------------------CHAT-------------------------------------------------------#
+@app.route("/chat/<id>")
+def chat(id):
+    session["userid"]=id
+    cid=str(session["userid"])
+    session["new"]=cid
+    qry = "select * from councillor where loginid='" + str(session['lid']) + "'"
+    res = db.selectOne(qry)
+    return render_template("councillor/fur_chat.html",photo=res["photo"],name=res["name"], toid=cid)
+
+
+@app.route("/coun_msg/<id>")        # refresh messages chatlist
+def chat_usr_chk(id):
+    qry = "select from_id,message as msg,date,chat_id from chat where (from_id='"+str(session['lid'])+"' and to_id='" +str(session["new"]) + "') or ((from_id='" + str(session["new"]) + "' and to_id='"+str(session['lid'])+"')) order by chat_id desc"
+    res = db.select(qry)
+
+    qry1 = "select * from councillor where loginid='" + str(session['lid']) + "'"
+    res1 = db.selectOne(qry1)
+    return jsonify(data=res,name=res1["name"],photo=res1["photo"],user_lid=res1["loginid"])
+
+
+@app.route("/coun_insert_chat/<msg>")
+def insert_chat(msg):
+    db=Db()
+    qry="insert into chat (date,time,from_id,to_id,message) values (curdate(),curtime(),'"+str(session['lid'])+"','"+str(session["userid"])+"','"+msg+"')"
+    db.insert(qry)
+    return jsonify(status="ok")
+
+@app.route("/chatview",methods=['post'])
+def chatview():
+    db=Db()
+    qry="select * from coord where loginid='"+str(session["userid"])+"'"
+    res=db.select(qry)
+    print(str(session["userid"])+"kjnfjnbm")
+    print(qry)
+    print(res)
+    return jsonify(data=res)
+
+
+@app.route("/viewmsg/<senid>")        # refresh messages chatlist
+def viewmsg(senid):
+    session['uid']=senid
+    print(senid, 'senid')
+    uid=senid
+    qry = "select from_id,message as msg,date from chat where (from_id='0' and to_id='" + uid + "') or ((from_id='" + uid + "' and to_id='0')) order by chat_id desc"
+    res = db.select(qry)
+    return jsonify(data=res)
+
+
+@app.route("/coord_chat_post",methods=['POST'])
+def coord_chat_post():
+    id=str(session["userid"])
+    ta=request.form["ta"]
+    qry="insert into chat(message,date,from_id,to_id) values('"+ta+"',CURDATE(),'0','"+id+"')"
+    db.insert(qry)
+    return render_template("councillor/fur_chat.html", toid=id)
+
+#--------------------------------------------END OF CHAT--------------------------------------------------#

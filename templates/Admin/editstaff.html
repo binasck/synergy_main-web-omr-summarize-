@@ -12,12 +12,12 @@
     <th>Gender</th>
     <td>
           <label>
-              <input type="radio" name="RadioGroup1" value="Male" id="RadioGroup1_0" required />
+              <input type="radio" name="RadioGroup1" value="Male" id="RadioGroup1_0" {% if data['gender']=='Female' %}checked{% endif %} required />
               Female
           </label><br>
 
           <label>
-              <input type="radio" name="RadioGroup1" value="Female" id="RadioGroup1_1" required/>
+              <input type="radio" name="RadioGroup1" value="Female" {% if data['gender']=='Male' %}checked{% endif %} id="RadioGroup1_1" required/>
               Male</label></td>
   </tr>
   <tr>

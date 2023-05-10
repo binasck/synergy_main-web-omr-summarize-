@@ -56,6 +56,11 @@ class Db:
         self.cnx.commit()
         return self.cur.lastrowid
 
+    def insert_par(self, q, par):
+        self.cur.execute(q, par)
+        self.cnx.commit()
+        return self.cur.lastrowid
+
     def update(self, q):
         self.cur.execute(q)
         self.cnx.commit()

@@ -1,0 +1,48 @@
+{% extends 'staff/b.html' %}
+{% block body %}
+<form action="/generatequestions_post#about" method="post" enctype="multipart/form-data">
+
+<table class="table table-bordered table-hover">
+  <tr>
+    <th>Content</th>
+    <td>
+        <textarea name="cont" id="exam" required class="form-control" ></textarea></td>
+    </tr>
+  <tr>
+
+  <tr>
+      <td></td>
+    <th><input type="submit" value="Add" class="btn btn-success">&nbsp;</th>
+  </tr>
+</table>
+
+{% if i=="1" %}
+<table class="table table-bordered table-hover">
+  <tr>
+    <th colspan="1" align="center">Summary</th>
+  </tr>
+{% for i in st %}
+<tr>
+    <td>
+        {{ i["summary_text"] }}</td>
+    </tr>
+  <tr>
+  {% endfor %}
+    </tr>
+</table>
+    <table class="table table-bordered table-hover">
+  <tr>
+      <td>Questions</td>
+    <th>Answer&nbsp;</th>
+  </tr>
+
+{% for i in ss %}
+     <tr>
+      <td>{{ i["question"] }}</td>
+    <th>{{ i["answer"] }}&nbsp;</th>
+  </tr>
+{% endfor %}
+</table>
+{% endif %}
+</form>
+{% endblock %}

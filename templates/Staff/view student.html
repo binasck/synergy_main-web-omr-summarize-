@@ -1,6 +1,6 @@
 {% extends 'staff/b.html' %}
 {% block body %}
-<form action="/staff_search_student" method="post">
+<form action="/staff_search_student#about" method="post">
 <table class="table table-bordered table-hover">
 <tr>
     <td><input name="search" type="text" class="form-control" required>  </td>
@@ -15,6 +15,7 @@
     <th>place</th>
     <th>Qualification</th>
     <th>Email</th>
+      <th></th>
     </tr>
   <tr>
 
@@ -25,6 +26,7 @@
     <td>{{ i['place'] }}</td>
     <td>{{ i['qualification'] }}</td>
     <td>{{ i['email'] }}</td>
+    <td><a href="/chat/{{ i['student_lid'] }}">Chat</a></td>
 
       </tr>
     {% endfor %}

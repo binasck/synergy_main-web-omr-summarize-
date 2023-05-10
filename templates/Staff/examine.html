@@ -1,0 +1,32 @@
+{% extends 'staff/b.html' %}
+{% block body %}
+<form action="/omr_examine_post#about" method="post" enctype="multipart/form-data">
+
+<table class="table table-bordered table-hover">
+
+    <tr>
+        <td>Choose Student</td>
+        <td>
+        <select name="slid" class="form-control">
+            {% for i in data %}
+                <option value="{{ i['student_lid'] }}">{{ i['name'] }}</option>
+            {% endfor %}
+        </select>
+        </td>
+    </tr>
+
+
+  <tr>
+    <th>Sheet Upload</th>
+    <td>
+        <input type="file" name="cont" class="form-control" required></td>
+    </tr>
+  <tr>
+
+  <tr>
+      <td></td>
+    <th><input type="submit" value="Upload" class="btn btn-success">&nbsp;</th>
+  </tr>
+</table>
+</form>
+{% endblock %}

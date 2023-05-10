@@ -5,36 +5,108 @@
   <tr>
     <th>Question</th>
     <td><label for="textfield2"></label>
-     <textarea name="question" cols="75" rows="5"></textarea></td>
+     <textarea name="question" cols="75" rows="5" required class="form-control"></textarea></td>
     </tr>
   <tr>
     <th>Option1</th>
-    <td><input name="option1" type="text" /></td>
+    <td><input name="option1" type="text" id="op1" required class="form-control"/></td>
     </tr>
   <tr>
     <th>Option2</th>
     <td>
-      <input type="text" name="option2" id="textfield" /></td>
+      <input type="text" name="option2" id="op2" class="form-control" required/></td>
   </tr>
   <tr>
-    <th>Options3</th>
+    <th>Option3</th>
     <td>
-      <input type="text" name="option3" id="textfield2" /></td>
+      <input type="text" name="option3" id="op3" class="form-control" required/></td>
     </tr> 
   <tr>
     <th>Option4</th>
     <td>
-      <input type="text" name="option4" id="textfield3" /></td>
+      <input type="text" name="option4" id="op4" class="form-control" required /></td>
+  </tr>
+    <tr>
+    <th>Option5</th>
+    <td>
+      <input type="text" name="option5" id="op5" class="form-control" required /></td>
   </tr>
   <tr>
     <th>Correct Answer</th>
     <td>
-      <input type="text" name="correct" id="textfield4" /></td>
+      <select name="correct"   class="form-control" required>
+          <option value="0">Option1</option>
+          <option value="1">Option2</option>
+          <option value="2">Option3</option>
+          <option value="3">Option4</option>
+          <option value="4">Option5</option>
+      </select></td>
     </tr>
   <tr>
       <td></td>
-    <th><input type="submit" value="Add" class="btn btn-success"/></th>
+    <th><input type="submit" value="Add"  id="bt" class="btn btn-success"/></th>
     </tr>
 </table>
 </form>
+
+<script src="/static/jquery.js"></script>
+    <script>
+
+  $(document).ready(function(){
+        $("#bt").show();
+  $(document).on("keyup","#c",function () {
+
+       var op1=$("#op1").val();
+        var op2=$("#op2").val();
+        var op3=$("#op3").val();
+        var op4=$("#op4").val();
+         var op5=$("#op5").val();
+        var crrct=$("#c").val();
+
+        if ((op1!=crrct) || (op2!=crrct) || (op3!=crrct)|| (op4!=crrct)||(op5!=crrct))
+        {
+
+
+           $("#bt").hide();
+        }
+        else{
+               $("#bt").show();
+        }
+
+
+  });
+
+});
+
+
+
+
+
+
+
+
+{#    function qval() {#}
+{##}
+{#        var op1=document.getElementById("op1").value;#}
+{#        var op2=document.getElementById("op2").value;#}
+{#        var op3=document.getElementById("op3").value;#}
+{#        var op4=document.getElementById("op4").value;#}
+{#        var crrct=document.getElementById("c").value;#}
+{#        var btn=.value;#}
+{#        if ((op1!=crrct) || (op2!=crrct) || (op3!=crrct)||(op4!=crrct))#}
+{#        {#}
+{##}
+{#            alert("Options doesnt match");#}
+{#           document.getElementById("bt").style.visibility="hidden";#}
+{#        }#}
+{#        else{#}
+{#               document.getElementById("bt").style.visibility = "visible";#}
+{#        }#}
+{##}
+{##}
+{##}
+{##}
+{##}
+{#    }#}
+    </script>
 {%  endblock %}

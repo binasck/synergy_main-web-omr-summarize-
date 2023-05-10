@@ -15,8 +15,10 @@
     <th >{{ loop.index }}</th>
     <td>{{ i['exam'] }}</td>
     <td>{{ i['date'] }}</td>
-    <td><a href="/viewquestions/{{ i['exam_id'] }}#about" class="btn btn-success">Add Questions</a></td>
-    <td><a href="/deleteexam/{{ i['exam_id'] }}#about"  class="btn btn-danger" >Delete</a></td>
+    <td width="50px"><a href="/viewquestions/{{ i['exam_id'] }}#about" class="btn btn-success">Questions</a></td>
+    <td width="50px"><a href="/deleteexam/{{ i['exam_id'] }}#about"  class="btn btn-danger" >Delete</a></td>
+    <td width="50px"><a href="/omr_examine/{{ i['exam_id'] }}#about"  class="btn btn-danger" >Upload Omr</a></td>
+    <td width="50px"><a href="/staff_view_result/{{ i['exam_id'] }}#about"  class="btn btn-danger" >Result</a></td>
     </tr>
     {% endfor %}
 </table>
